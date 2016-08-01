@@ -1,15 +1,15 @@
 package example.module.gallery.controller;
 
 import example.module.gallery.vo.PhotoVO;
-import hex.control.controller.Controller;
-import hex.control.controller.ICompletable;
+import hex.control.ICompletable;
+import hex.mdvtc.control.CommandTrigger;
 
 /**
  * ...
  * @author Francis Bourre
  */
-class GalleryController extends Controller implements IGalleryController
+class GalleryController extends CommandTrigger implements IGalleryController
 {
-	@Class( "example.module.gallery.controller.LoadPhotosOrder" )
+	@Map( example.module.gallery.controller.LoadPhotosOrder )
 	public function loadPhotos() : ICompletable<Array<PhotoVO>> {}
 }

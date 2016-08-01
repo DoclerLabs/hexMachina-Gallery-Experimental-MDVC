@@ -2,20 +2,32 @@ package example.module.gallery.model;
 
 import example.module.gallery.model.IGalleryModelListener;
 import example.module.gallery.vo.PhotoVO;
-import hex.model.Model;
-import hex.model.ModelDispatcher;
+import hex.mdvtc.model.IDispatcherOwner;
 
 /**
  * ...
  * @author Andrei Bunulu
  */
-class GalleryModel extends Model<GalleryModelDispatcher, IGalleryModelListener> implements IGalleryModel
+class GalleryModel implements IDispatcherOwner implements IGalleryModel
 {
+	@Dispatcher
+	public var dispatcher : IGalleryModelListener;
+	
 	var _photos : Array<PhotoVO>;
 	
 	public function new() 
 	{
-		super();
+		
+	}
+	
+	public function addListener( listener : IGalleryModelListener ) : Void
+	{
+		this.dispatcher.addListener( listener );
+	}
+	
+	public function removeListener( listener : IGalleryModelListener ) : Void
+	{
+		this.dispatcher.removeListener( listener );
 	}
 	
 	public function setPhotos( photos : Array<PhotoVO> ) : Void 
@@ -27,18 +39,5 @@ class GalleryModel extends Model<GalleryModelDispatcher, IGalleryModelListener> 
 	public function getPhotos() : Array<PhotoVO> 
 	{
 		return this._photos;
-	}
-}
-
-private class GalleryModelDispatcher extends ModelDispatcher<IGalleryModelListener> implements IGalleryModelListener
-{
-	public function new() 
-	{
-		super();
-	}
-	
-	public function onPhotosLoaded( photos : Array<PhotoVO> ) : Void
-	{
-		//Method will be implemented @compile time by macro
 	}
 }

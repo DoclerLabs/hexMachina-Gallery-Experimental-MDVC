@@ -1,4 +1,5 @@
 package example.module.gallery;
+
 import hex.module.IModule;
 
 /**

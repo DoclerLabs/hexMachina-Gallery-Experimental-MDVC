@@ -2,14 +2,14 @@ package example.service.flickr;
 
 import example.module.gallery.service.IGetPhotosService;
 import example.module.gallery.vo.PhotoVO;
-import hex.control.controller.ICompletable;
-import hex.order.HttpOrder;
+import hex.control.ICompletable;
+import hex.mdvtc.control.HttpRequest;
 
 /**
  * ...
  * @author Francis Bourre
  */
-class FlickrService extends HttpOrder<Array<PhotoVO>> implements IGetPhotosService
+class FlickrService extends HttpRequest<Array<PhotoVO>> implements IGetPhotosService
 {
 	public function new() 
 	{

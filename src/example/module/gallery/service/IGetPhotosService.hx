@@ -1,7 +1,7 @@
 package example.module.gallery.service;
 
 import example.module.gallery.vo.PhotoVO;
-import hex.control.controller.ICompletable;
+import hex.control.ICompletable;
 
 /**
  * @author Francis Bourre
