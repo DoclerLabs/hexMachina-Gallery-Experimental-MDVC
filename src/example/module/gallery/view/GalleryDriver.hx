@@ -5,7 +5,6 @@ import example.module.gallery.model.IGalleryModelListener;
 import example.module.gallery.model.IGalleryModelRO;
 import example.module.gallery.vo.PhotoVO;
 import hex.di.IInjectorContainer;
-import hex.event.IDispatcher;
 
 /**
  * ...
@@ -13,8 +12,7 @@ import hex.event.IDispatcher;
  */
 class GalleryDriver implements IGalleryDriver implements IInjectorContainer
 {
-	@Listen
-	var _modelDispatcher : IDispatcher<IGalleryModelListener>;
+	//var _modelDispatcher : IDispatcher<IGalleryModelListener>;
 	
 	@Inject
 	var _model : IGalleryModelRO;
@@ -25,6 +23,7 @@ class GalleryDriver implements IGalleryDriver implements IInjectorContainer
 	@Inject
 	var _controller : IGalleryController;
 	
+	@Listen( example.module.gallery.model.IGalleryModelListener )
 	public function new() 
 	{
 		
