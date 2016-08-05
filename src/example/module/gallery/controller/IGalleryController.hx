@@ -9,5 +9,6 @@ import hex.mdvtc.control.ICommandTrigger;
  */
 interface IGalleryController extends ICommandTrigger
 {
-	function loadPhotos() : ICompletable<Array<PhotoVO>>;
+	function initialize( galleryTitle : String ) : Void;
+	function loadPhotos( galleryTitle : String ) : ICompletable<Array<PhotoVO>>;
 }

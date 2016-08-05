@@ -9,7 +9,7 @@ import hex.mdvtc.control.Command;
  * ...
  * @author Francis Bourre
  */
-class LoadPhotosOrder extends Command<Array<PhotoVO>> implements IInjectorContainer
+class LoadPhotosCommand extends Command<Array<PhotoVO>> implements IInjectorContainer
 {
 	@Inject
 	public var photosService : IGetPhotosService;

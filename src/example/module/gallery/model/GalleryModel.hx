@@ -1,17 +1,16 @@
 package example.module.gallery.model;
 
-import example.module.gallery.model.IGalleryModelListener;
+import example.module.gallery.model.IGalleryContract;
 import example.module.gallery.vo.PhotoVO;
-import hex.mdvtc.model.IDispatcherOwner;
 
 /**
  * ...
  * @author Andrei Bunulu
  */
-class GalleryModel implements IDispatcherOwner implements IGalleryModel
+class GalleryModel implements IGalleryModel
 {
-	@Dispatcher
-	public var dispatcher : IGalleryModelListener;
+	@Output
+	public var output : IGalleryContract;
 	
 	var _photos : Array<PhotoVO>;
 	
@@ -20,20 +19,15 @@ class GalleryModel implements IDispatcherOwner implements IGalleryModel
 		
 	}
 	
-	public function addListener( listener : IGalleryModelListener ) : Void
+	public function setGalleryTitle( galleryTitle : String ) : Void
 	{
-		this.dispatcher.addListener( listener );
-	}
-	
-	public function removeListener( listener : IGalleryModelListener ) : Void
-	{
-		this.dispatcher.removeListener( listener );
+		this.output.onInitializeGallery( galleryTitle );
 	}
 	
 	public function setPhotos( photos : Array<PhotoVO> ) : Void 
 	{
 		this._photos = photos;
-		this.dispatcher.onPhotosLoaded( this._photos );
+		this.output.onPhotosLoaded( this._photos );
 	}
 	
 	public function getPhotos() : Array<PhotoVO> 

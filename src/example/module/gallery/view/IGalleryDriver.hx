@@ -1,11 +1,12 @@
 package example.module.gallery.view;
 
-import example.module.gallery.model.IGalleryModelListener;
+import example.module.gallery.model.IGalleryContract;
+import hex.mdvtc.driver.IInput;
 
 /**
  * @author Francis Bourre
  */
-interface IGalleryDriver extends IGalleryModelListener
+interface IGalleryDriver extends IGalleryContract
 {
-	function initialize() : Void;
+	var input : IInput<IGalleryContract>;
 }

@@ -30,11 +30,12 @@ class GalleryModule extends Module implements IGalleryModule
 		this._addStatelessConfigClasses( [ GalleryModuleConfig ] );
 		
 		//TODO remove
-		var model = ( cast this._getDependencyInjector().getInstance( IGalleryModel ) );
-		var viewHelper =  this._getDependencyInjector().getInstance( IGalleryDriver );
-		model.dispatcher.addListener( viewHelper );
-		viewHelper.initialize();
+		var controller = this._getDependencyInjector().getInstance( IGalleryController );
+		var model = this._getDependencyInjector().getInstance( IGalleryModel );
+		var driver =  this._getDependencyInjector().getInstance( IGalleryDriver );
 
+		driver.input.plug( ( cast model ).output );
+		controller.initialize( "Docler Gallery" );
 	}
 	
 	override function _getRuntimeDependencies() : IRuntimeDependencies

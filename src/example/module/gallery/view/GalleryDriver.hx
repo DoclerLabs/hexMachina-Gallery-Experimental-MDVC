@@ -1,21 +1,21 @@
 package example.module.gallery.view;
 
 import example.module.gallery.controller.IGalleryController;
-import example.module.gallery.model.IGalleryModelListener;
-import example.module.gallery.model.IGalleryModelRO;
+import example.module.gallery.model.IGalleryContract;
 import example.module.gallery.vo.PhotoVO;
 import hex.di.IInjectorContainer;
+import hex.mdvtc.driver.IInput;
+import hex.mdvtc.driver.IInputOwner;
+import hex.mdvtc.driver.Input;
 
 /**
  * ...
  * @author Andrei Bunulu
  */
-class GalleryDriver implements IGalleryDriver implements IInjectorContainer
+class GalleryDriver implements IGalleryDriver implements IInputOwner implements IInjectorContainer
 {
-	//var _modelDispatcher : IDispatcher<IGalleryModelListener>;
-	
-	@Inject
-	var _model : IGalleryModelRO;
+	@Input
+	public var input : IInput<IGalleryContract>;
 	
 	@Inject
 	var _view : IGalleryView;
@@ -23,32 +23,20 @@ class GalleryDriver implements IGalleryDriver implements IInjectorContainer
 	@Inject
 	var _controller : IGalleryController;
 	
-	@Listen( example.module.gallery.model.IGalleryModelListener )
 	public function new() 
 	{
 		
 	}
 	
-	public function initialize() : Void
-	{
-		trace( this._controller );
-		this._controller.loadPhotos().onComplete( this.onPhotosLoaded );
-	}
-	
-	/*override function _initialize() : Void 
-	{
-		super._initialize();
-		
-		//TODO implementation
-		//this._modelDispatcher.addListener( this );
-		
-		//this._model.addListener( this );
-		this._controller.loadPhotos().onComplete( this.onPhotosLoaded );
-	}*/
-	
 	public function onPhotosLoaded( photos : Array<PhotoVO> ) : Void
 	{
-		//this.getLogger().info( "onPhotosLoaded" );
 		this._view.setPhotos( photos );
+		this.input.switchOff();
+	}
+	
+	public function onInitializeGallery( galleryTitle : String ) : Void
+	{
+		this._controller.loadPhotos( galleryTitle ).onComplete( this.onPhotosLoaded );
+		this.input.switchOff();
 	}
 }
