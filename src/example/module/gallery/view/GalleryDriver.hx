@@ -28,15 +28,14 @@ class GalleryDriver implements IGalleryDriver implements IInputOwner implements 
 		
 	}
 	
-	public function onPhotosLoaded( photos : Array<PhotoVO> ) : Void
-	{
-		this._view.setPhotos( photos );
-		this.input.switchOff();
-	}
-	
 	public function onInitializeGallery( galleryTitle : String ) : Void
 	{
 		this._controller.loadPhotos( galleryTitle ).onComplete( this.onPhotosLoaded );
+	}
+	
+	public function onPhotosLoaded( photos : Array<PhotoVO> ) : Void
+	{
+		this._view.setPhotos( photos );
 		this.input.switchOff();
 	}
 }
