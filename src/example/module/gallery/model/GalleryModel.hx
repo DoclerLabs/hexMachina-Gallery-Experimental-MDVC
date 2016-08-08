@@ -2,6 +2,7 @@ package example.module.gallery.model;
 
 import example.module.gallery.model.IGalleryContract;
 import example.module.gallery.vo.PhotoVO;
+import hex.mdvtc.model.IOutput;
 
 /**
  * ...
@@ -10,7 +11,7 @@ import example.module.gallery.vo.PhotoVO;
 class GalleryModel implements IGalleryModel
 {
 	@Output
-	public var output : IGalleryContract;
+	public var output : IOutput<IGalleryContract>;
 	
 	var _photos : Array<PhotoVO>;
 	
