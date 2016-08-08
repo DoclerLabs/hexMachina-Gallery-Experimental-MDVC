@@ -11,7 +11,7 @@ import hex.mdvtc.model.IOutput;
 class GalleryModel implements IGalleryModel
 {
 	@Output
-	public var output : IOutput<IGalleryContract>;
+	public var output( default, never ) : IOutput<IGalleryContract>;
 	
 	var _photos : Array<PhotoVO>;
 	

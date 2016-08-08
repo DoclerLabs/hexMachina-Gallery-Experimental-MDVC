@@ -28,14 +28,12 @@ class GalleryModule extends Module implements IGalleryModule
 
 		this._addStatefulConfigs( [ serviceConfig ] );
 		this._addStatelessConfigClasses( [ GalleryModuleConfig ] );
-		
-		//TODO remove
-		var controller = this._getDependencyInjector().getInstance( IGalleryController );
-		var model = this._getDependencyInjector().getInstance( IGalleryModel );
-		var driver =  this._getDependencyInjector().getInstance( IGalleryDriver );
-
-		driver.input.plug( ( cast model ).output );
-		controller.initialize( "Docler Gallery" );
+	}
+	
+	override function _onInitialisation() : Void 
+	{
+		super._onInitialisation();
+		this._get( IGalleryController ).initialize( "Docler Gallery" );
 	}
 	
 	override function _getRuntimeDependencies() : IRuntimeDependencies
@@ -45,7 +43,7 @@ class GalleryModule extends Module implements IGalleryModule
 		return rd;
 	}
 	
-	function buildView( ):Void
+	function buildView() : Void
 	{
 		#if flash
 			var container : flash.display.Sprite = new flash.display.Sprite();
@@ -63,8 +61,10 @@ private class GalleryModuleConfig extends StatelessModuleConfig
 {
 	override public function configure() : Void
 	{
-		this.mapModel( IGalleryModel, GalleryModel );
 		this.mapController( IGalleryController, GalleryController );
+		this.mapModel( IGalleryModel, GalleryModel );
 		this.mapDriver( IGalleryDriver, GalleryDriver );
+		
+		this.get( IGalleryDriver ).input.plug( this.get( IGalleryModel ).output );
 	}
 }
