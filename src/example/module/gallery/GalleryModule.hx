@@ -19,14 +19,13 @@ import hex.module.dependency.RuntimeDependencies;
  */
 class GalleryModule extends Module implements IGalleryModule
 {
-	public function new( serviceConfig : hex.config.stateful.IStatefulConfig ) 
+	public function new( serviceConfig : hex.config.stateful.IStatefulConfig, viewConfig : hex.config.stateful.IStatefulConfig ) 
 	{
 		super();
 
 		this.getLogger().info( "GalleryModule initialized" );
-		this.buildView();
 
-		this._addStatefulConfigs( [ serviceConfig ] );
+		this._addStatefulConfigs( [ serviceConfig, viewConfig ] );
 		this._addStatelessConfigClasses( [ GalleryModuleConfig ] );
 	}
 	
@@ -41,19 +40,6 @@ class GalleryModule extends Module implements IGalleryModule
 		var rd = new RuntimeDependencies();
 		rd.addMappedDependencies( [ IGetPhotosService ] );
 		return rd;
-	}
-	
-	function buildView() : Void
-	{
-		#if flash
-			var container : flash.display.Sprite = new flash.display.Sprite();
-			flash.Lib.current.addChild( container );
-			this._getDependencyInjector().mapToValue( IGalleryView, new example.module.gallery.view.GalleryViewFlash( container ) );
-		#elseif js
-			this._getDependencyInjector().mapToValue( IGalleryView, new example.module.gallery.view.GalleryViewJS( js.Browser.document.querySelector( "#console" ) ) );
-		#else 
-			#error  // will display an error "Not implemented on this platform"
-		#end
 	}
 }
 

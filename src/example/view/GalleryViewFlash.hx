@@ -1,5 +1,6 @@
-package example.module.gallery.view;
+package example.view;
 
+import example.module.gallery.view.IGalleryView;
 import example.module.gallery.vo.PhotoVO;
 import flash.display.Loader;
 import flash.display.Sprite;

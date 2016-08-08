@@ -1,5 +1,6 @@
-package example.module.gallery.view;
+package example.view;
 
+import example.module.gallery.view.IGalleryView;
 import example.module.gallery.vo.PhotoVO;
 import hex.log.Logger;
 import js.html.DOMElement;
@@ -16,6 +17,7 @@ class GalleryViewJS implements IGalleryView
 	
 	public function new( layout : DOMElement ) 
 	{
+		trace( "layout:", layout );
 		this._layout = layout;
 	}
 	

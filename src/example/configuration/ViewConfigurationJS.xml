@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <root>
+	
+	<div id="div" type="js.Browser" static-ref="document" factory="querySelector">
+		<argument value="#console"/>
+	</div>
+	
+	<view id="view" type="example.view.GalleryViewJS">
+		<argument ref="div"/>
+	</view>
 
-		
 </root>

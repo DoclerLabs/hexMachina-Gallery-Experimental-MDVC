@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	
+	<include if="browser" file="example/configuration/ViewConfigurationJS.xml"/>
+	<include if="flashplayer" file="example/configuration/ViewConfigurationFlash.xml"/>
+	
+	<config id="viewConfig" type="hex.ioc.di.MappingConfiguration" >
+		<item> 
+			<key type="Class" value="example.module.gallery.view.IGalleryView"/>
+			<value ref="view"/>
+		</item>
+	</config>
+		
+</root>
