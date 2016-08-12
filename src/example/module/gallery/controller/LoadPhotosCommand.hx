@@ -3,7 +3,7 @@ package example.module.gallery.controller;
 import example.module.gallery.service.IGetPhotosService;
 import example.module.gallery.vo.PhotoVO;
 import hex.di.IInjectorContainer;
-import hex.mdvtc.control.Command;
+import hex.mdvc.control.Command;
 
 /**
  * ...

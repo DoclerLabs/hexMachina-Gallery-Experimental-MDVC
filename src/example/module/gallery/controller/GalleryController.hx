@@ -3,7 +3,7 @@ package example.module.gallery.controller;
 import example.module.gallery.model.IGalleryModel;
 import example.module.gallery.vo.PhotoVO;
 import hex.control.ICompletable;
-import hex.mdvtc.control.CommandTrigger;
+import hex.mdvc.control.CommandTrigger;
 
 /**
  * ...

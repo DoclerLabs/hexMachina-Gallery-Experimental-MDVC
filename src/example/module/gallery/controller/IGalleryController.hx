@@ -2,7 +2,7 @@ package example.module.gallery.controller;
 
 import example.module.gallery.vo.PhotoVO;
 import hex.control.ICompletable;
-import hex.mdvtc.control.ICommandTrigger;
+import hex.mdvc.control.ICommandTrigger;
 
 /**
  * @author Francis Bourre

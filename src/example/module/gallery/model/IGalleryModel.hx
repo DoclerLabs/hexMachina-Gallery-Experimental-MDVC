@@ -1,8 +1,8 @@
 package example.module.gallery.model;
 
 import example.module.gallery.vo.PhotoVO;
-import hex.mdvtc.model.IOutput;
-import hex.mdvtc.model.IOutputOwner;
+import hex.mdvc.model.IOutput;
+import hex.mdvc.model.IOutputOwner;
 
 /**
  * @author Andrei Bunulu

@@ -4,9 +4,9 @@ import example.module.gallery.controller.IGalleryController;
 import example.module.gallery.model.IGalleryContract;
 import example.module.gallery.vo.PhotoVO;
 import hex.di.IInjectorContainer;
-import hex.mdvtc.driver.IInput;
-import hex.mdvtc.driver.IInputOwner;
-import hex.mdvtc.driver.Input;
+import hex.mdvc.driver.IInput;
+import hex.mdvc.driver.IInputOwner;
+import hex.mdvc.driver.Input;
 
 /**
  * ...

@@ -8,7 +8,7 @@ import example.module.gallery.service.IGetPhotosService;
 import example.module.gallery.view.GalleryDriver;
 import example.module.gallery.view.IGalleryDriver;
 import example.module.gallery.view.IGalleryView;
-import hex.mdvtc.config.stateless.StatelessModuleConfig;
+import hex.mdvc.config.stateless.StatelessModuleConfig;
 import hex.module.Module;
 import hex.module.dependency.IRuntimeDependencies;
 import hex.module.dependency.RuntimeDependencies;

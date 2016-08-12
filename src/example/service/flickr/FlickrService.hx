@@ -3,7 +3,7 @@ package example.service.flickr;
 import example.module.gallery.service.IGetPhotosService;
 import example.module.gallery.vo.PhotoVO;
 import hex.control.ICompletable;
-import hex.mdvtc.control.HttpRequest;
+import hex.mdvc.control.HttpRequest;
 
 /**
  * ...

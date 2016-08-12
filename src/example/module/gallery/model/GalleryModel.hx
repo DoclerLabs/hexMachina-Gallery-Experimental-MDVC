@@ -2,7 +2,7 @@ package example.module.gallery.model;
 
 import example.module.gallery.model.IGalleryContract;
 import example.module.gallery.vo.PhotoVO;
-import hex.mdvtc.model.IOutput;
+import hex.mdvc.model.IOutput;
 
 /**
  * ...
